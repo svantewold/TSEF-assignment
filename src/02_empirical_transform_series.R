@@ -1,8 +1,7 @@
 library(data.table)
 
 dt <- fread(
-  "data/processed/nelson_plosser_data.csv",
-  select = c("Year", "CPI")
+  "data/processed/nelson_plosser_data.csv"
 )[,
   .(
     year = Year,

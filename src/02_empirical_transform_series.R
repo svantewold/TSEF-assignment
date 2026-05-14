@@ -1,6 +1,19 @@
 library(data.table)
 
-dt <- read_xlsx("data/raw/Nelson_Plosser_data.xlsx")
+dt <- fread(
+  "data/processed/nelson_plosser_data.csv",
+  select = c("Year", "CPI")
+)
 
-setDT(dt[, .(Year, CPI)])
-dt
+dt[,
+  .(
+    year = Year,
+    log_cpi = log(CPI),
+    cpi = CPI
+  )
+]
+
+fwrite(
+  dt,
+  "data/processed/cpi_series.csv"
+)

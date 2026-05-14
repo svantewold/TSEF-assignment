@@ -26,3 +26,8 @@ ggsave(
   width = 10,
   height = 8
 )
+
+fwrite(
+  dt,
+  "data/processed/nelson_plosser_data.csv"
+)

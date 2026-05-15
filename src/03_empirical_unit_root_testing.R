@@ -4,16 +4,17 @@ library(car)
 library(zoo)
 
 cpi_dt <- fread(
-    "data/processed/cpi_series.csv"
-)[,
-    ":="(
-        log_cpi = as.zoo(log_cpi)
-    )
+  "data/processed/cpi_series.csv"
+)[
+  ,
+  ":="(
+    log_cpi = as.zoo(log_cpi)
+  )
 ]
 
 cpi_dt |>
-    ggplot(aes(x = year, y = log_cpi)) +
-    geom_line()
+  ggplot(aes(x = year, y = log_cpi)) +
+  geom_line()
 
 time_trend <- 1:(length(cpi_dt$log_cpi) - 1)
 

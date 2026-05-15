@@ -5,8 +5,7 @@ dt <- fread(
 )[,
   .(
     year = Year,
-    log_cpi = log(CPI),
-    cpi = CPI
+    log_cpi = log(CPI)
   )
 ]
 

@@ -37,8 +37,8 @@ latex_table <- kable(
     col.names = c(
         "Restrictions",
         "F-statistic",
-        "Critical value for 95% confidence interval",
-        "Critical value for 99% confidence interval",
+        "Critical value for 95\\% confidence interval",
+        "Critical value for 99\\% confidence interval",
         "Dickey-Fuller Test Statistic"
     ),
     escape = FALSE

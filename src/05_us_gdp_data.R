@@ -6,7 +6,7 @@ dt <- read_xlsx(
 ) |>
   setDT()
 
-dt[,
+dt <- dt[,
   ":="(
     date = strptime(dt$dates, format = "%d-%b-%Y") |> as.IDate(),
     log_gdp = log(gdpc1)

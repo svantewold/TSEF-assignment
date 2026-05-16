@@ -27,7 +27,7 @@ test_output <- data.frame(
     "f.value" = test$F[2],
     "critical.val.95" = 6.49,
     "critical.val.99" = 8.73,
-    "dickey.f.teststat" = "φ_3"
+    "dickey.f.teststat" = "$\phi_3$"
 )
 
 latex_table <- kable(

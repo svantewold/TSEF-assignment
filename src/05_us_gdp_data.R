@@ -12,7 +12,7 @@ dt <- dt[,
     log_gdp = log(gdpc1)
   )
 ] |>
-  _[dates < "2020-01-01", .(date, log_gdp, nber = NBER)]
+  _[date < "2020-01-01", .(date, log_gdp, nber = NBER)]
 
 fwrite(
   dt,

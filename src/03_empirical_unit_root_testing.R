@@ -1,6 +1,6 @@
 library(zoo)
 library(car)
-library(knitr)
+library(kableExtra)
 
 cpi_series <- read.csv(
     "data/processed/cpi_series.csv"
@@ -30,18 +30,21 @@ test_output <- data.frame(
     "dickey.f.teststat" = "$\\phi_3$"
 )
 
-latex_table <- kable(
+latex_table <- kbl(
     test_output,
     "latex",
     digits = 4,
     col.names = c(
         "Restrictions",
         "F-statistic",
-        "Critical value for 95\\% confidence interval",
-        "Critical value for 99\\% confidence interval",
+        "Critical value 95\\%",
+        "Critical value 99\\%",
         "Dickey-Fuller Test Statistic"
     ),
-    escape = FALSE
+    escape = FALSE,
+    booktabs = TRUE,
+    caption = "Test statistic and critical values for\\\\ unit root hypothesis test",
+    align = c("ccccc")
 )
 
 write(latex_table, "output/tables/unit_root_test.tex")

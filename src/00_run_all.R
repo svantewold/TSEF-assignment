@@ -15,9 +15,9 @@ source("src/06_us_gdp_data.R")
 source("src/07_us_gdp_decompositions.R")
 
 suppressMessages(
-    quiet(gert::git_commit_all(
+    gert::git_commit_all(
         "Project entry point: ran and commited output files."
-    ))
+    )
 )
 message("Commited output files via git.")
 

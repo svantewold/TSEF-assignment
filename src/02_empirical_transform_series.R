@@ -32,4 +32,4 @@ dt |>
     panel.grid.minor = element_blank(),
     panel.grid = element_line(color = "grey85")
   )
-ggsave("output/log_cpi_series.pdf", dpi = 300, width = 5.5, height = 3)
+ggsave("output/figures/log_cpi_series.pdf", dpi = 300, width = 5.5, height = 3)

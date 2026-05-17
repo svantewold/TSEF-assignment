@@ -11,4 +11,6 @@ if (!file.exists("data/simulated/simulated_series_estimation.csv")) {
 source("src/05_simulated_random_walk_analysis.R")
 source("src/06_us_gdp_data.R")
 source("src/07_us_gdp_decompositions.R")
+
+gert::git_commit_all("Repo root runner: commit output")
 message("Repository root ran successfully!")

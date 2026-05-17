@@ -1,6 +1,6 @@
-library(zoo)
-library(car)
-library(kableExtra)
+library(zoo, warn.conflicts = FALSE)
+library(car, warn.conflicts = FALSE)
+library(kableExtra, warn.conflicts = FALSE)
 
 cpi_series <- read.csv(
     "data/processed/cpi_series.csv"

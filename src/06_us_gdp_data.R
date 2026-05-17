@@ -1,5 +1,5 @@
-library(readxl)
-library(data.table)
+library(readxl, warn.conflicts = FALSE)
+library(data.table, warn.conflicts = FALSE)
 
 dt <- read_xlsx(
   "data/raw/real_gdp_US_2022Q4.xlsx"

@@ -1,5 +1,5 @@
-library(data.table)
-library(ggplot2)
+library(data.table, warn.conflicts = FALSE)
+library(ggplot2, warn.conflicts = FALSE)
 
 dt <- fread(
   "data/processed/nelson_plosser_data.csv"

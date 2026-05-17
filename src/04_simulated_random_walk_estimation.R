@@ -1,4 +1,4 @@
-library(data.table)
+library(data.table, warn.conflicts = FALSE)
 
 # Random walk simulation function
 sim_rwalk <- function(T) {

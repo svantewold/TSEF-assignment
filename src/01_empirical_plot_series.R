@@ -1,6 +1,6 @@
-library(readxl)
-library(ggplot2)
-library(data.table)
+library(readxl, warn.conflicts = FALSE)
+library(ggplot2, warn.conflicts = FALSE)
+library(data.table, warn.conflicts = FALSE)
 
 dt <- read_xlsx("data/raw/Nelson_Plosser_data.xlsx") |>
   setDT()

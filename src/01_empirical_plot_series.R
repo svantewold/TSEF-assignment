@@ -19,7 +19,7 @@ dt |>
   theme_light()
 
 ggsave(
-  "output/nelson_plosser_data_series.pdf",
+  "output/figures/nelson_plosser_data_series.pdf",
   dpi = 300,
   width = 10,
   height = 8

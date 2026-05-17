@@ -19,6 +19,6 @@ invisible(
         "Project entry point: ran and commited output files."
     )
 )
-message("- Commited output files via git.\n\n")
+message("- Commited output files via git.\n")
 
 message("Repository root ran successfully!")

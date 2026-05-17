@@ -22,12 +22,21 @@ melt(
   measure.vars = c("bn_transitory", "hp_transitory")
 ) |>
   ggplot(aes(x = date, color = variable)) +
-  geom_line(aes(y = value), lwd = 1) +
-  labs(x = NULL, y = NULL) +
+  geom_line(aes(y = value), lwd = .6) +
+  labs(x = NULL, y = NULL, color = NULL) +
+  scale_color_discrete(
+    labels = c("Beveridge-Nelson decomposition", "Hodrick-Prescott filter")
+  ) +
   theme_light() +
   theme(
     axis.text = element_text(color = "black"),
     panel.grid.minor = element_blank(),
-    panel.grid = element_line(color = "grey85")
+    panel.grid = element_line(color = "grey85"),
+    legend.position = "top"
   )
-ggsave("output/figures/gdp_decompositions_transitory.pdf")
+ggsave(
+  "output/figures/gdp_decompositions_transitory.pdf",
+  dpi = 300,
+  width = 5,
+  height = 3.5
+)

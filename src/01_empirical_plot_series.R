@@ -7,13 +7,11 @@ dt <- read_xlsx("data/raw/Nelson_Plosser_data.xlsx") |>
 
 series <- names(dt)[-1]
 
-dt_plot <- dt |>
+dt |>
   melt(
     id.vars = "Year",
     measure.vars = series
-  )
-
-dt_plot |>
+  ) |>
   ggplot(aes(x = Year, y = value, group = variable, color = variable)) +
   geom_line(show.legend = FALSE) +
   facet_wrap(~variable, scales = "free_y", nrow = 5) +

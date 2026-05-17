@@ -45,4 +45,4 @@ for (i in 1:length(sim)) {
 
 dt <- rbindlist(estimates)
 
-fwrite(dt, "data/processed/simulated_series_estimation.csv")
+fwrite(dt, "data/simulated/simulated_series_estimation.csv")

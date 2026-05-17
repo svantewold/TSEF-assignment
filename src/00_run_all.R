@@ -1,7 +1,11 @@
 source("src/01_empirical_plot_series.R")
 source("src/02_empirical_transform_series.R")
 source("src/03_empirical_unit_root_testing.R")
-# source("src/04_simulated_random_walk_estimation.R")
+
+if (!file.exists("data/simulated/simulated_series_estimation.csv")) {
+    source("src/04_simulated_random_walk_estimation.R")
+}
+
 source("src/05_us_gdp_data.R")
 source("src/06_us_gdp_decompositions.R")
 message("Repository root ran successfully!")

@@ -3,4 +3,4 @@
 .RData
 .Ruserdata
 .DS_Store
-data/simulated/
+data/simulated/simulated_series_estimation.csv

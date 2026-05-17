@@ -8,6 +8,7 @@ if (!file.exists("data/simulated/simulated_series_estimation.csv")) {
     message("Simulated data is already present, skipping script 04.")
 }
 
-source("src/05_us_gdp_data.R")
-source("src/06_us_gdp_decompositions.R")
+source("src/05_simulated_random_walk_analysis.R")
+source("src/06_us_gdp_data.R")
+source("src/07_us_gdp_decompositions.R")
 message("Repository root ran successfully!")

@@ -44,6 +44,5 @@ for (i in 1:length(sim)) {
 }
 
 dt <- rbindlist(estimates)
-dt[, t_stat := ((estimate - 1) / (std_error))]
 
-fwrite("data/processed/simulated_series.csv")
+fwrite(dt, "data/processed/simulated_series_estimation.csv")

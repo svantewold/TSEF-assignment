@@ -14,6 +14,8 @@ dt[,
   )
 ]
 
+fwrite(dt, "data/processed/us_gdp_series_decomposed.csv")
+
 melt(
   dt,
   id.vars = "date",
@@ -28,3 +30,4 @@ melt(
     panel.grid.minor = element_blank(),
     panel.grid = element_line(color = "grey85")
   )
+ggsave("output/figures/gdp_decompositions_transitory.pdf")

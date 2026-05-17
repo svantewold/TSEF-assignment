@@ -4,6 +4,8 @@ source("src/03_empirical_unit_root_testing.R")
 
 if (!file.exists("data/simulated/simulated_series_estimation.csv")) {
     source("src/04_simulated_random_walk_estimation.R")
+} else {
+    message("Simulated data is already present, skipping to next script.")
 }
 
 source("src/05_us_gdp_data.R")

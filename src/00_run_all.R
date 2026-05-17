@@ -1,3 +1,4 @@
+message("Running project entry point...\n")
 source("src/01_empirical_plot_series.R")
 source("src/02_empirical_transform_series.R")
 source("src/03_empirical_unit_root_testing.R")
@@ -21,4 +22,4 @@ invisible(
 )
 message("- Commited output files via git.\n")
 
-message("Repository root ran successfully!")
+message("Project entry point ran successfully!")

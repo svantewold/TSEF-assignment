@@ -1,5 +1,5 @@
-hp_filter <- function(data, lambda) {
-  T <- length(data)
+hp_filter <- function(series, lambda) {
+  T <- length(series)
   I <- Diagonal(T)
 
   D <- bandSparse(
@@ -14,12 +14,30 @@ hp_filter <- function(data, lambda) {
   )
 
   m <- I + lambda * crossprod(D)
-  trend <- solve(m, data)
-  cycle <- data - trend
+  trend <- solve(m, series)
+  cycle <- series - trend
 
   return(list(
     trend = trend,
     cycle = cycle,
     m = m
+  ))
+}
+
+bn_decomposition <- function(series) {
+  arma <- arima(diff(series), order = c(1, 0, 0))
+  ar_coef <- arma$coef[1]
+  intercept <- arma$coef[2]
+
+  perm <- series[-1] +
+    (diff(series) - intercept) *
+      (ar_coef / (1 - ar_coef))
+  trend <- c(NA, perm)
+
+  cycle <- (series - trend)
+
+  return(list(
+    trend = trend,
+    cycle = cycle
   ))
 }

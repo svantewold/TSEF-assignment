@@ -22,6 +22,7 @@ melt(
   ggplot(aes(x = date, color = variable)) +
   geom_line(aes(y = value), lwd = .6) +
   labs(x = NULL, y = NULL, color = NULL) +
+  scale_x_date(date_breaks = "15 years") +
   scale_color_discrete(
     labels = c("Beveridge-Nelson decomposition", "Hodrick-Prescott filter")
   ) +
@@ -30,11 +31,12 @@ melt(
     axis.text = element_text(color = "black"),
     panel.grid.minor = element_blank(),
     panel.grid = element_line(color = "grey85"),
-    legend.position = "top"
+    legend.position = "top",
+    legend.margin = margin(0, 0, -6, 0)
   )
 ggsave(
   "output/figures/gdp_decompositions_transitory.pdf",
   dpi = 300,
-  width = 5,
-  height = 3.5
+  width = 4.5,
+  height = 3
 )

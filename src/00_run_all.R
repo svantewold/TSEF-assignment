@@ -11,7 +11,9 @@ if (!file.exists("data/simulated/simulated_series_estimation.csv")) {
     message("- Simulated data is already present, skipping simulation.")
 }
 
-source("src/05_simulated_random_walk_analysis.R")
+suppressWarnings(
+    source("src/05_simulated_random_walk_analysis.R")
+)
 source("src/06_us_gdp_data.R")
 suppressWarnings(
     source("src/07_us_gdp_decompositions.R")

@@ -63,7 +63,7 @@ histogram_t_stats <- dt |>
     ),
   )
 
-histogram_t_stats + histogram_estimates
+suppressWarnings(histogram_t_stats + histogram_estimates)
 ggsave(
   "output/figures/simulated_estimation_densities.pdf",
   width = 8,

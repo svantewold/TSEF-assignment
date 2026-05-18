@@ -22,9 +22,14 @@ melt(
   ggplot(aes(x = date, color = variable)) +
   geom_line(aes(y = value), lwd = .5) +
   labs(x = NULL, y = NULL, color = NULL) +
-  scale_x_date(date_breaks = "15 years") +
+  scale_x_date(date_breaks = "14 years") +
   scale_color_discrete(
     labels = c("Beveridge-Nelson decomposition", "Hodrick-Prescott filter")
+  ) +
+  coord_cartesian(
+    xlim = c(as.IDate("1946-01-01"), as.IDate("2021-01-01")),
+    ylim = c(-0.065, 0.04),
+    expand = FALSE
   ) +
   theme_light() +
   theme(

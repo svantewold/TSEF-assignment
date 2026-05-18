@@ -44,7 +44,7 @@ histogram_estimates <- dt |>
   )
 
 histogram_t_stats <- dt |>
-  ggplot(aes(x = t_stat, fill = model)) +
+  ggplot(aes(x = t_stat, fill = model, color = model)) +
   geom_density(show.legend = FALSE) +
   facet_wrap(~model, ncol = 1, scales = "free", strip.position = "right") +
   labs(x = "T-statistic") +

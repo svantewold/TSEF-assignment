@@ -13,11 +13,15 @@ From `Nelson_Plosser_data.xlsx` I have focused on the CPI series and tested it f
 ## Estimations on simulated random walks
 
 `04_simulated_random_walk_estimation.R` simulates $N=100000$ sequences of the pure random walk process
-$$x_t = x_{t-1} + u_t$$
-of size $T=81$ where $u_t \sim N(0,1)$ and $x_0=0$. It then estimates 3 different linear regression models to the sequences:
-$$x_t = \rho x_{t-1} + u_t \tag{1}$$
-$$x_t = c + \rho x_{t-1} + u_t \tag{2}$$
-$$x_t = c + \delta t + \rho x_{t-1} + u_t \tag{3}$$
+- $x_t = x_{t-1} + u_t$
+
+of size $T=81$ where $u_t \sim N(0,1)$ and $x_0=0$. 
+
+It then estimates 3 different linear regression models to the sequences:
+1. $x_t = \rho x_{t-1} + u_t$
+2. $x_t = c + \rho x_{t-1} + u_t$
+3. $x_t = c + \delta t + \rho x_{t-1} + u_t$
+
 where $t$ is a linear and deterministic time trend. The estimates, $\hat \rho$, and the standard errors, $SE(\hat \rho)$, are extracted into a large data table which is then exported in order to avoid to have to redo the simulation for analysis.
 
 `05_simulated_random_walk_analysis.R` computes t-statistics for the null hypothesis: $\rho=1$ for all series and models. It then calculates percentiles for the 3 different models and exports a `latex` table, presenting the percentiles per model. It also produces density plots of the t-statistics and estimates and exports those in a joint figure.

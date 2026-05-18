@@ -20,7 +20,8 @@ quantiles <- data.table(
   "Model 3" = dt[
     model == 3,
     quantile(t_stat, probs = c(0.14, 0.86), na.rm = TRUE)
-  ]
+  ],
+  "Percentile" = c(14, 86)
 )
 
 histogram_estimates <- dt |>

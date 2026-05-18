@@ -28,7 +28,7 @@ melt(
   ) +
   coord_cartesian(
     xlim = c(as.IDate("1946-01-01"), as.IDate("2021-01-01")),
-    ylim = c(-0.065, 0.04),
+    ylim = c(-0.065, 0.065),
     expand = FALSE
   ) +
   theme_light() +

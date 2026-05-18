@@ -30,7 +30,7 @@ test_output <- data.frame(
     "dickey.f.teststat" = "$\\phi_3$"
 )
 
-latex_table <- kbl(
+dickey_fuller_test_table <- kbl(
     test_output,
     "latex",
     digits = 4,
@@ -47,4 +47,4 @@ latex_table <- kbl(
     align = c("ccccc")
 )
 
-write(latex_table, "output/tables/unit_root_test.tex")
+write(dickey_fuller_test_table, "output/tables/unit_root_test.tex")

@@ -14,8 +14,6 @@ dt[,
   )
 ]
 
-fwrite(dt, "data/processed/us_gdp_series_decomposed.csv")
-
 melt(
   dt,
   id.vars = "date",

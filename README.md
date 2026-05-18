@@ -22,6 +22,8 @@ where $t$ is a linear and deterministic time trend. The estimates, $\hat \rho$, 
 
 `05_simulated_random_walk_analysis.R` computes t-statistics for the null hypothesis: $\rho=1$ for all series and models. It then calculates percentiles for the 3 different models and exports a `latex` table, presenting the percentiles per model. It also produces density plots of the t-statistics and estimates and exports those in a joint figure.
 
+NB! The project entry point will look for the simulated data and avoid running the simulation if the data already exists.
+
 ## US real GDP decompositions
 
 - `06_us_gdp_data.R` truncates the US real GDP series from `real_gdp_US_2022Q4.xlsx` to end at 2019:Q4, log-transforms the series and exports the table.

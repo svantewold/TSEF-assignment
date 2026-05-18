@@ -1,6 +1,7 @@
 library(data.table, warn.conflicts = FALSE)
 library(ggplot2, warn.conflicts = FALSE)
 library(patchwork, warn.conflicts = FALSE)
+library(kableExtra, warn.conflicts = FALSE)
 
 dt <- fread(
   "data/simulated/simulated_series_estimation.csv"
@@ -9,6 +10,7 @@ dt <- fread(
 dt[, t_stat := ((estimate - 1) / (std_error))]
 
 quantiles <- data.table(
+  "Percentile" = c(14, 86),
   "Model 1" = dt[
     model == 1,
     quantile(t_stat, probs = c(0.14, 0.86), na.rm = TRUE)
@@ -20,9 +22,19 @@ quantiles <- data.table(
   "Model 3" = dt[
     model == 3,
     quantile(t_stat, probs = c(0.14, 0.86), na.rm = TRUE)
-  ],
-  "Percentile" = c(14, 86)
+  ]
 )
+
+quantiles_table <- kbl(
+  quantiles,
+  "latex",
+  digits = 4,
+  escape = FALSE,
+  booktabs = TRUE,
+  caption = "Percentiles for estimated t-statistic, per model specification.",
+  align = c("cccc")
+)
+write(quantiles_table, "output/tables/simulated_t_stat_quantiles.tex")
 
 histogram_estimates <- dt |>
   ggplot(aes(x = estimate, color = model)) +

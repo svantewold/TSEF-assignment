@@ -37,6 +37,6 @@ melt(
 ggsave(
   "output/figures/gdp_decompositions_transitory.pdf",
   dpi = 300,
-  width = 4.5,
+  width = 5,
   height = 3
 )

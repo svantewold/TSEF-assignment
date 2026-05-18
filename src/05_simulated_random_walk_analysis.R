@@ -1,5 +1,6 @@
 library(data.table, warn.conflicts = FALSE)
 library(ggplot2, warn.conflicts = FALSE)
+library(patchwork, warn.conflicts = FALSE)
 
 dt <- fread(
   "data/simulated/simulated_series_estimation.csv"
@@ -23,13 +24,49 @@ quantiles <- data.table(
 )
 
 histogram_estimates <- dt |>
-  ggplot(aes(x = estimate, fill = model)) +
-  geom_histogram(show.legend = FALSE) +
-  facet_wrap(~model, ncol = 1)
+  ggplot(aes(x = estimate, color = model)) +
+  geom_density(show.legend = FALSE, lwd = 2) +
+  facet_wrap(~model, ncol = 1, scales = "free_y", strip.position = "right") +
+  labs(x = "Estimated coefficient") +
+  theme_light() +
+  theme(
+    axis.text = element_text(color = "black"),
+    panel.grid = element_line(color = "grey85"),
+    strip.background = element_blank(),
+    axis.title.y = element_blank(),
+    axis.title.x = element_text(margin = margin(14, 0, 0, 0)),
+    strip.text.y.right = element_text(
+      angle = 0,
+      face = "bold",
+      size = 11,
+      color = "black"
+    )
+  )
 
 histogram_t_stats <- dt |>
   ggplot(aes(x = t_stat, fill = model)) +
-  geom_histogram(show.legend = FALSE, bins = 3) +
-  facet_wrap(~model, ncol = 1)
+  geom_density(show.legend = FALSE) +
+  facet_wrap(~model, ncol = 1, scales = "free", strip.position = "right") +
+  labs(x = "T-statistic") +
+  theme_light() +
+  theme(
+    axis.text = element_text(color = "black"),
+    panel.grid = element_line(color = "grey85"),
+    strip.background = element_blank(),
+    axis.title.y = element_blank(),
+    axis.title.x = element_text(margin = margin(14, 0, 0, 0)),
+    strip.text.y.right = element_text(
+      angle = 0,
+      face = "bold",
+      size = 11,
+      color = "black"
+    ),
+  )
 
-histogram_t_stats
+histogram_t_stats + histogram_estimates
+ggsave(
+  "output/figures/simulated_estimation_densities.pdf",
+  width = 8,
+  height = 5,
+  dpi = 300
+)

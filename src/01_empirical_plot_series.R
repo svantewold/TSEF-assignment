@@ -16,7 +16,16 @@ dt |>
   geom_line(show.legend = FALSE) +
   facet_wrap(~variable, scales = "free_y", nrow = 5) +
   labs(x = NULL, y = NULL) +
-  theme_light()
+  theme_light() +
+  theme(
+    axis.text = element_text(color = "black"),
+    panel.grid = element_line(color = "grey85"),
+    strip.background = element_blank(),
+    strip.text.x.top = element_text(
+      size = 10,
+      color = "black"
+    )
+  )
 
 ggsave(
   "output/figures/nelson_plosser_data_series.pdf",

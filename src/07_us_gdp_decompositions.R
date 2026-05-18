@@ -20,7 +20,7 @@ melt(
   measure.vars = c("bn_transitory", "hp_transitory")
 ) |>
   ggplot(aes(x = date, color = variable)) +
-  geom_line(aes(y = value), lwd = .6) +
+  geom_line(aes(y = value), lwd = .5) +
   labs(x = NULL, y = NULL, color = NULL) +
   scale_x_date(date_breaks = "15 years") +
   scale_color_discrete(

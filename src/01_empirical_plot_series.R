@@ -23,7 +23,8 @@ dt |>
     strip.background = element_blank(),
     strip.text.x.top = element_text(
       size = 10,
-      color = "black"
+      color = "black",
+      face = "bold"
     )
   )
 

@@ -11,12 +11,16 @@ cpi_series$first_diff <- diff(cpi_series$log_cpi)
 
 cpi_series$lags <- lag(cpi_series$log_cpi, k = -1)
 
-cpi_series$first_diff_lags <- lag(cpi_series$first_diff, k = -1)
+cpi_series$first_diff_lag_1 <- lag(cpi_series$first_diff, k = -1)
+cpi_series$first_diff_lag_2 <- lag(cpi_series$first_diff, k = -2)
 
-time_trend <- 1:length(cpi_series$first_diff_lags)
+time_trend <- 1:length(cpi_series$first_diff_lag_2)
 
 model <- lm(
-    formula = first_diff ~ lags + time_trend + first_diff_lags,
+    formula = first_diff ~ lags +
+        time_trend +
+        first_diff_lag_1 +
+        first_diff_lag_2,
     data = cpi_series
 )
 

@@ -47,7 +47,7 @@ dickey_fuller_test_table <- kbl(
     ),
     escape = FALSE,
     booktabs = TRUE,
-    caption = "Test statistic and critical values for\\\\ unit root hypothesis test",
+    caption = "Test statistic and critical values for unit root hypothesis test",
     align = c("ccccc")
 )
 

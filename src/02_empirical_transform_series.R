@@ -1,5 +1,6 @@
 library(data.table, warn.conflicts = FALSE)
 library(ggplot2, warn.conflicts = FALSE)
+library(latex2exp, warn.conflicts = FALSE)
 
 dt <- fread(
   "data/processed/nelson_plosser_data.csv"
@@ -33,3 +34,13 @@ dt |>
     panel.grid = element_line(color = "grey85")
   )
 ggsave("output/figures/log_cpi_series.pdf", dpi = 300, width = 5, height = 3)
+
+pdf("output/figures/acf_log_cpi.pdf", width = 8, height = 5)
+par(mfcol = c(1, 2), mar = c(3, 3, 3, 2))
+
+dt[, diff(log_cpi)] |>
+  acf(main = TeX("ACF of $\\Delta y_t$"))
+dt[, diff(log_cpi)] |>
+  pacf(main = TeX("PACF of $\\Delta y_t$"))
+
+invisible(dev.off())

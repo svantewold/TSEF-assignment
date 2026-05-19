@@ -1,5 +1,5 @@
 library(zoo, warn.conflicts = FALSE)
-library(car, warn.conflicts = FALSE)
+library(car, quietly = TRUE)
 library(kableExtra, warn.conflicts = FALSE)
 
 cpi_series <- read.csv(

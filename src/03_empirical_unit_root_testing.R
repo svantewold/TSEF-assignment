@@ -48,7 +48,9 @@ dickey_fuller_test_table <- kbl(
     escape = FALSE,
     booktabs = TRUE,
     caption = "Test statistic and critical values for unit root hypothesis test",
-    align = c("ccccc")
+    align = c("ccccc"),
+    label = "df_test_table",
+    position = "h"
 )
 
 write(dickey_fuller_test_table, "output/tables/unit_root_test.tex")

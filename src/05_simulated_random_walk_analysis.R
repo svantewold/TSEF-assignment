@@ -32,7 +32,9 @@ quantiles_table <- kbl(
   escape = FALSE,
   booktabs = TRUE,
   caption = "Percentiles for estimated t-statistic, per model specification.",
-  align = c("cccc")
+  align = c("cccc"),
+  label = "simulated_percentiles",
+  position = "h"
 )
 write(quantiles_table, "output/tables/simulated_t_stat_quantiles.tex")
 
